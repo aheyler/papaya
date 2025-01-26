@@ -3,13 +3,13 @@
 
 {% block content %}
 <main id="main" class="index" tabindex="-1">
-    <section>
-        {% set banner = resize_image(path="/static/banner.jpg", width=672, op="fit_width") %}
-        <img src="{{ banner.url }}" class="index-banner" alt="A misty forest."/>
+    <section class="index-banner-section">
+        <img src="/IMG_0911.jpg" class="index-banner" alt="Photo of me."/>
         <p>
             {{ config.description }}
         </p>
     </section>
+    {{ section.content | safe }}
     <section class="index-columns">
     {% for subsec in config.extra.menu_items | filter(attribute="show_recent", value=true) %}
         <section class="index-listing">

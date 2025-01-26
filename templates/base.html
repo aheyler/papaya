@@ -13,13 +13,14 @@
 
     {% set color_mode_css_path = config.extra.color_mode ~ ".css" %}
     <link rel="stylesheet" href="{{ get_url(path="base.css", trailing_slash=false) }}">
+    <link rel="stylesheet" href="{{ get_url(path="block_list.css", trailing_slash=false) }}">
     <link rel="stylesheet" href="{{ get_url(path=color_mode_css_path, trailing_slash=false) }}">
 
     <link rel="preload" href={{ config.extra.cdn.font_awesome }} as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href={{ config.extra.cdn.font_awesome }}></noscript>
 
     {% if config.generate_feed %}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+    <link rel="alternate" type={% if config.feed_filenames[0] == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filenames[0]) | safe }}">
     {% endif %}
 
     {% block ogp_head %}

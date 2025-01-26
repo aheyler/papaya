@@ -31,9 +31,9 @@
         {% if extended_width > config.extra.images.max_width %}
             {% set extended_width = config.extra.images.max_width %}
         {% endif %}
-        {% set resized_image = resize_image(path=img_path, width=extended_width, op="fit_width", quality=image_quality) %}
+        {% set resized_image = resize_image(path=img_path, width=extended_width, op="fill", quality=image_quality) %}
     {% else %}
-        {% set resized_image = resize_image(path=img_path, width=figure_width, op="fit_width", quality=image_quality) %}
+        {% set resized_image = resize_image(path=img_path, width=figure_width, op="fill", quality=image_quality) %}
     {% endif %}
 {% endif %}
 <figure {% if extended_width_pct %}class="extended-figure"{% endif %}>
