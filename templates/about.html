@@ -1,7 +1,7 @@
 {% import "macros/page.html" as page_macros %}
 {% extends "base.html" %}
 
-{% block title %}{{ trans(key="about", lang=lang) }} "Title here" {% endblock title %}
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock %}
 
 
 {% block content %}
